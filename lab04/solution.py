@@ -1,17 +1,30 @@
+
 def winner(names, scores):
-    winner = names.index(max(scores)) + 1
-    return winner
-def average(names, scores):
-    averege = 0
-    if len(scores) > 0:
-        avarage = sum(scores) / len(scores)
-    return average
+    max_score = max(scores)
+    index = scores.index(max_score)
+    return names[index]
+def average(scores):
+    if len(scores) == 0:
+        return 0.0
+    return round(sum(scores) / len(scores), 2)
 def ranking(names, scores):
-    ranking = []
-    for el in range(len(scores) - 1):
-        m = max(scores)
-        ranking.append(names(scores.index(m)))
-    return ranking
+    result = []
+    for i in range(len(scores)):
+        result.append([scores[i], names[i]])
+    for i in range(len(result)):
+        for j in range(i + 1, len(result)):
+            if result[j][0] > result[i][0]:
+                temp = result[i]
+                result[i] = result[j]
+                result[j] = temp
+    answer = []
+    for i in range(len(result)):
+        answer.append(result[i][1])
+    return answer
 def above_average(names, scores):
-    above_averege = [names[scores.index(x)] for x in scores if x > average ]
-    return above_average
+    avg = average(scores)
+    result = []
+    for i in range(len(scores)):
+        if scores[i] > avg:
+            result.append(names[i])
+    return result
