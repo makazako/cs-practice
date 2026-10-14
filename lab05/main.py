@@ -13,11 +13,6 @@ def main():
     with open('summary.csv', 'w', encoding='utf-8') as file:
         file.write(result)
 
-    print('Количество событий:', counts)
-
-    for kind in sorted(counts):
-        print(kind, total_minutes(rows, kind))
-
 
 if __name__ == '__main__':
     main()

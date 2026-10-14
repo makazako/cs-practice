@@ -61,7 +61,7 @@ def total_minutes(rows, kind):
 
     for row in rows:
         if row['тип'] == kind:
-            total += float(row['минуты'])
+            total += str(row['минуты'])
 
     return round(total, 1)
 
