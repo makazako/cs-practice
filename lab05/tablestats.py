@@ -59,6 +59,5 @@ for line in s:
     lines.append([str(x) for x in line.split(',')])
 rows =read_rows(lines)
 counts = count_types(rows)
-
 with open("summary.csv", "w", encoding="utf-8") as out:
     out.write(to_csv(counts))
