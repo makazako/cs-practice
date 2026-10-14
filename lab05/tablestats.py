@@ -11,7 +11,10 @@ def read_rows(lines):
         if len(l) > 2:
             a.append(l[0])
             b.append(l[1])
-            c.append((l[2]))
+            if l[2] != '':
+                c.append((l[2]))
+            else:
+                c.append(0)
     answer = {
         str(l1[0]): a,
         str(l1[1]): b,
@@ -51,13 +54,3 @@ def to_csv(counts):
         answer += f'{key},{value}\n'
 
     return answer
-
-s = open('events.csv')
-lines = []
-for line in s:
-    line = line.rstrip('\n')
-    lines.append([str(x) for x in line.split(',')])
-rows =read_rows(lines)
-counts = count_types(rows)
-with open("summary.csv", "w", encoding="utf-8") as out:
-    out.write(to_csv(counts))
