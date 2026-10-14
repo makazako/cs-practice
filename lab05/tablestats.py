@@ -30,7 +30,7 @@ def read_rows(lines):
         except ValueError:
             continue
 
-        if minutes < 0:
+        if float(minutes) < 0:
             continue
 
         rows.append({
@@ -61,7 +61,7 @@ def total_minutes(rows, kind):
 
     for row in rows:
         if row['тип'] == kind:
-            total += str(row['минуты'])
+            total += float(row['минуты'])
 
     return round(total, 1)
 
