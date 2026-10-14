@@ -1,56 +1,75 @@
+
 def read_rows(lines):
     rows = []
+
     for line in lines:
-        rows.append(line)
-    l1 = rows[0]
-    lost = rows[1:]
-    a = []
-    b =[]
-    c = []
-    for l in lost:
-        if len(l) > 2:
-            a.append(l[0])
-            b.append(l[1])
-            if l[2] != '':
-                c.append((l[2]))
-            else:
-                c.append(0)
-    answer = {
-        str(l1[0]): a,
-        str(l1[1]): b,
-        'минуты': c
-    }
-    return answer
+        line = line.strip()
+
+        if not line:
+            continue
+
+        parts = line.split(',')
+
+        if len(parts) != 3:
+            continue
+
+        date, kind, minutes = parts
+
+        if date.strip() == 'дата':
+            continue
+
+        date = date.strip()
+        kind = kind.strip()
+        minutes = minutes.strip()
+
+        if not date or not kind:
+            continue
+
+        try:
+            minutes = float(minutes)
+        except ValueError:
+            continue
+
+        if minutes < 0:
+            continue
+
+        rows.append({
+            'дата': date,
+            'тип': kind,
+            'минуты': minutes
+        })
+
+    return rows
+
 
 def count_types(rows):
-    type = rows['тип']
-    v = sorted(type)
-    vv = set(v)
-    answer = {}
-    for x in vv:
-        answer[str(x)] = v.count(x)
-    return answer
+    counts = {}
+
+    for row in rows:
+        kind = row['тип']
+
+        if kind not in counts:
+            counts[kind] = 0
+
+        counts[kind] += 1
+
+    return counts
+
 
 def total_minutes(rows, kind):
-    answer = []
-    c = 0
-    i = 0
-    for x in rows['тип']:
-        i += 1
-        if x == kind:
-            answer.append(float((rows["минуты"])[i-1]))
-            c+=1
-    s  = sum(answer)
-    if answer == []:
-        return 0
-        
-    else:
-        return s/c
+    total = 0
+
+    for row in rows:
+        if row['тип'] == kind:
+            total += float(row['минуты'])
+
+    return round(total, 1)
+
 
 def to_csv(counts):
-    answer = 'тип,количество\n'
+    lines = ['тип,количество']
 
-    for key, value in sorted(counts.items()):
-        answer += f'{key},{value}\n'
+    for kind in sorted(counts):
+        lines.append(f'{kind},{counts[kind]}')
 
-    return answer
+    return '\n'.join(lines)

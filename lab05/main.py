@@ -21,3 +21,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+with open("summary.csv", "a", encoding="utf-8") as file:
+    file.write(f"Вывод:\n {c}\n {i}\n {o}\n")
