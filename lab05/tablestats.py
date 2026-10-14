@@ -26,7 +26,7 @@ def read_rows(lines):
             continue
 
         try:
-            minutes = float(minutes)
+            minutes = str(minutes)
         except ValueError:
             continue
 
