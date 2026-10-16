@@ -30,9 +30,6 @@ def read_rows(lines):
         except ValueError:
             continue
 
-        if float(minutes) < 0:
-            continue
-
         rows.append({
             'дата': date,
             'тип': kind,
@@ -72,4 +69,4 @@ def to_csv(counts):
     for kind in sorted(counts):
         lines.append(f'{kind},{counts[kind]}')
 
-    return '\n'.join(lines)
+    return '\n'.join(lines) + '\n'

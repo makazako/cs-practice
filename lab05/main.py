@@ -1,20 +1,21 @@
-
 from tablestats import read_rows, count_types, total_minutes, to_csv
 
 
-def main():
-    with open(str(input()), 'r', encoding='utf-8') as file:
-        rows = read_rows(file)
+s = input()
 
-    counts = count_types(rows)
+with open(s, encoding="utf-8") as table:
+    rows = read_rows(table)
 
-    result = to_csv(counts)
+c = len(rows)
+ct = count_types(rows)
+cm = total_minutes(rows, 'ошибка')
 
-    with open('summary.csv', 'w', encoding='utf-8') as file:
-        file.write(result)
-    return result
+with open("summary.csv", "w", encoding="utf-8") as out:
+    out.write(to_csv(ct))
 
+with open("summary.csv", "w", encoding="utf-8") as out:
+    out.write(f'{c}, \n {len(ct)}, \n {cm} \n')
 
-if __name__ == '__main__':
-    main()
-    
+# 14, 
+# 4, 
+# 2.5 
