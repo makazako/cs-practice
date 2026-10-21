@@ -10,6 +10,10 @@ c = len(rows)
 ct = count_types(rows)
 cm = total_minutes(rows, 'ошибка')
 
+print(c)
+print(len(ct))
+print(cm)
+
 with open("summary.csv", "w", encoding="utf-8") as out:
     out.write(to_csv(ct))
 
