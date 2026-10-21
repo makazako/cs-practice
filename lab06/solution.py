@@ -15,7 +15,7 @@ def common(first, second):
         for x2 in second:
             if x1 == x2:
                 res.append(x1)
-    return res
+    return sorted(res)
 
 def only_in_first(first, second):
     res = []
