@@ -14,7 +14,7 @@ with open("summary.csv", "w", encoding="utf-8") as out:
     out.write(to_csv(ct))
 
 with open("summary.csv", "w", encoding="utf-8") as out:
-    out.write(f'{c}, \n {len(ct)}, \n {cm} \n')
+    out.write(f'{c}\n{len(ct)}\n{cm}\n')
 
 # 14, 
 # 4, 
