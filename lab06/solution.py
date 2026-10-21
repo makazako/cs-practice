@@ -23,7 +23,9 @@ def only_in_first(first, second):
         for x2 in second:
             if x1 != x2:
                 res.append(x1)
-    return sorted(set(res))[0]
+    res = sorted(set(res))
+    res = res[:1]
+    return res
 
 values = ["ошибка", "запуск", "ошибка", "проверка"]
 first = ["иванов", "петрова"]
