@@ -2,10 +2,9 @@ def reshape_rows(values, width):
     i = 0
     res = []
     res1 = []
+    if len(values) % width != 0:
+        return []
     for x  in values:
-        
-        if i == 0 and len(values[values.index(x):] ) <= width:
-            width = len(values[values.index(x):] )
         i += 1
         if i < width:
             res1.append(x)
@@ -51,11 +50,6 @@ def column_range(matrix, column):
             res.append(x[column])
     return max(res) - min(res)
             
-values = [1, 2, 3]
-width = 2
-column = 1
-rows = [0,2]
-print(reshape_rows(values, width))
 
 # [[12, 14.5, 11], [13, 15.5, 10.5]]
 
