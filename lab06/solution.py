@@ -10,22 +10,10 @@ def unique_sorted(values):
     return sorted(res.keys())
 
 def common(first, second):
-    res = []
-    for x1 in first:
-        for x2 in second:
-            if x1 == x2:
-                res.append(x1)
-    return sorted(res)
+    return (sorted(set(first) & set(second)))
 
 def only_in_first(first, second):
-    res = []
-    for x1 in first:
-        for x2 in second:
-            if x1 != x2:
-                res.append(x1)
-    res = sorted(set(res))
-    res = res[:1]
-    return res
+    return (sorted(set(first) - set(second)))[:1]
 
 values = ["ошибка", "запуск", "ошибка", "проверка"]
 first = ["иванов", "петрова"]
