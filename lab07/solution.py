@@ -11,6 +11,8 @@ def block(matrix, rows, columns):
     return res.tolist()
 
 def column_means(matrix):
+    if matrix == []:
+        return []
     res = np.asarray(matrix)
     res = np.mean(res, axis=0)
     return res.tolist()
@@ -18,7 +20,7 @@ def column_means(matrix):
 def column_range(matrix, column):
     res = np.asarray(matrix)
     res = res[:, column]
-    return np.max(res) - np.min(res)
+    return float(np.max(res) - np.min(res))
             
 print(reshape_rows([12, 14.5, 11, 13, 15.5, 10.5], 3))
 # [[12, 14.5, 11], [13, 15.5, 10.5]]
