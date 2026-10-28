@@ -28,6 +28,8 @@ def block(matrix, rows, columns):
     return res
 
 def column_means(matrix):
+    if matrix == []:
+        return []
     c = len(matrix[0])
     i = 0
     res = []
