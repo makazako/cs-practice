@@ -3,17 +3,17 @@ import numpy as np
 def reshape_rows(values, width):
     res = np.asarray(values)
     res = res.reshape((len(values)// width), width)
-    return res
+    return res.tolist()
 
 def block(matrix, rows, columns):
     res = np.asarray(matrix)
     res = res[np.ix_(rows, columns)]
-    return res
+    return res.tolist()
 
 def column_means(matrix):
     res = np.asarray(matrix)
     res = np.mean(res, axis=0)
-    return res
+    return res.tolist()
 
 def column_range(matrix, column):
     res = np.asarray(matrix)
