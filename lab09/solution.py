@@ -32,12 +32,14 @@ print(change_vector(v))
 def cap_above(values, limit):
     values = np.array(values)
     values[values > limit] = limit
-    return values
+    return values.tolist()
 
 print(cap_above(v, 10))
 
 def celsius_to_fahrenheit(values):
-    return [int(x) for x in (values * 9/5) + 32]
+    values = np.array(values)
+    values = (values * 9/5) + 32
+    return [int(x) for x in values]
 
 print(celsius_to_fahrenheit(v))
 
