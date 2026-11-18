@@ -2,12 +2,12 @@ import numpy as np
 
 v = np.array([0, 3, 6, 9, 12, 15, 18, 21])
 
-def make_hours(v):
-    res =np.arange(len(v))
+def make_hours():
+    res =np.arange(8)
     res = res * 3
-    return res
+    return res.tolist
 
-print(make_hours(v))
+print(make_hours())
 
 def vector_report(values):
     b = {
