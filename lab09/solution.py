@@ -13,9 +13,9 @@ def vector_report(values):
     b = {
         "third": float(values[2]),
         "last": float(values[-1]),
-        "middle": [float(x) for x in values[2:6]],
-        "every_second": [float(x) for x in values[::2]],
-        "reversed": [-1.0] * len(values[::2])    
+        "middle": [int(x) for x in values[2:6]],
+        "every_second": [int(x) for x in values[::2]],
+        "reversed": [int(x) for x in values[::-1]] 
     }
     return b
 
@@ -24,7 +24,7 @@ print(vector_report(v))
 def change_vector(values):
     v = values.copy()
     v[2:5] = [99,99,99]
-    v[::2] = -1
+    v[::2] = [-1] * len(values[::2])   
     return v
 
 print(change_vector(v))
