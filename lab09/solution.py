@@ -11,11 +11,11 @@ print(make_hours())
 
 def vector_report(values):
     b = {
-        "third": int(values[2]),
-        "last": int(values[-1]),
-        "middle": [int(x) for x in values[2:6]],
-        "every_second": [int(x) for x in values[::2]],
-        "reversed": [-1] * len(values[::2])    
+        "third": float(values[2]),
+        "last": float(values[-1]),
+        "middle": [float(x) for x in values[2:6]],
+        "every_second": [float(x) for x in values[::2]],
+        "reversed": [-1.0] * len(values[::2])    
     }
     return b
 
