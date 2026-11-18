@@ -5,7 +5,7 @@ v = np.array([0, 3, 6, 9, 12, 15, 18, 21])
 def make_hours():
     res =np.arange(8)
     res = res * 3
-    return res.tolist
+    return res.tolist()
 
 print(make_hours())
 
@@ -15,7 +15,7 @@ def vector_report(values):
         "last": int(values[-1]),
         "middle": [int(x) for x in values[2:6]],
         "every_second": [int(x) for x in values[::2]],
-        "reversed": [int(x) for x in values[::-1]]    
+        "reversed": [-1] * len(values[::2])    
     }
     return b
 
@@ -30,6 +30,7 @@ def change_vector(values):
 print(change_vector(v))
 
 def cap_above(values, limit):
+    values = np.array(values)
     values[values > limit] = limit
     return values
 
