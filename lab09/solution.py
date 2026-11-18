@@ -39,7 +39,7 @@ print(cap_above(v, 10))
 def celsius_to_fahrenheit(values):
     values = np.array(values)
     values = (values * 9/5) + 32
-    return [int(x) for x in values]
+    return [float(x) for x in values]
 
 print(celsius_to_fahrenheit(v))
 
