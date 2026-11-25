@@ -36,7 +36,7 @@ def solve_system(matrix, vector):
     return (np.linalg.solve(np.array(matrix), np.array(vector))).tolist()
 
 def tensor_channel_mean(tensor):
-    return (np.mean(np.array(tensor), axis=(0, 1))).tolist()
+    return (np.mean(np.array(tensor), axis=-1)).tolist()
 
 def point_distance(first, second):
     return (np.linalg.norm(np.array(first) - np.array(second))).tolist()
