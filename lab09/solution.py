@@ -11,8 +11,8 @@ print(make_hours())
 
 def vector_report(values):
     b = {
-        "third": float(values[2]),
-        "last": float(values[-1]),
+        "third": int(values[2]),
+        "last": int(values[-1]),
         "middle": [int(x) for x in values[2:6]],
         "every_second": [int(x) for x in values[::2]],
         "reversed": [int(x) for x in values[::-1]] 
@@ -48,3 +48,6 @@ print(celsius_to_fahrenheit(v))
 # [-1  3 -1 99 -1 15 -1 21]
 # [ 0  3  6  9 10 10 10 10]
 # [32, 37, 42, 48, 50, 50, 50, 50]
+
+arr = np.array([1,2,3,4,5])
+print(arr[4:1:-2])
