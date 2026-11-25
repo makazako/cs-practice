@@ -1,18 +1,22 @@
 import numpy as np
 
 def make_table(rows, columns):
-    return np.arange(rows*columns).reshape((rows, columns))
+    return np.arange(rows*columns).reshape((rows, columns)).tolist
 
 def rectangle(matrix, row_start, row_stop, column_start, column_stop):
-    return matrix[row_start-1:row_stop, column_start-1:column_stop]
+    return [
+        row[column_start-1:column_stop]
+        for row in matrix[row_start-1:row_stop]
+    ]
 m = make_table(3, 4)
 print(m)
 print(rectangle(m, 1, 3, 1, 3))
 
 def replace_rectangle(matrix, row_start, row_stop, column_start, column_stop, value):
-    m = matrix[row_start-1:row_stop, column_start-1:column_stop]
-    m[:] = value
-    return m
+    for i in range(row_start-1, row_stop):
+        for j in range(column_start-1, column_stop):
+            matrix[i][j] = value
+    return matrix
 print(replace_rectangle(m, 1, 3, 1, 3, 99))
 
 def matrix_vector_product(matrix, vector):
