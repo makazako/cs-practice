@@ -20,25 +20,25 @@ def replace_rectangle(matrix, row_start, row_stop, column_start, column_stop, va
 print(replace_rectangle(m, 1, 3, 1, 3, 99))
 
 def matrix_vector_product(matrix, vector):
-    return np.array(matrix) @ np.array(vector)
+    return (np.array(matrix) @ np.array(vector)).tolist()
 
 print(matrix_vector_product(m, np.array([1, 2, 3, 4])))
 
 def matrix_multiply(left, right):
-    return np.array(left) @ np.array(right)
+    return (np.array(left) @ np.array(right)).tolist()
 
 print(matrix_multiply(m, np.array([[1, 2], [3, 4], [5, 6], [7, 8]])))
 
 def transpose_matrix(matrix):
-    return np.array(matrix).T
+    return (np.array(matrix).T).tolist()
 
 def solve_system(matrix, vector):
-    return np.linalg.solve(np.array(matrix), np.array(vector))
+    return (np.linalg.solve(np.array(matrix), np.array(vector))).tolist()
 
 def tensor_channel_mean(tensor):
-    return np.mean(np.array(tensor), axis=(0, 1))
+    return (np.mean(np.array(tensor), axis=(0, 1))).tolist()
 
 def point_distance(first, second):
-    return np.linalg.norm(np.array(first) - np.array(second))
+    return (np.linalg.norm(np.array(first) - np.array(second))).tolist()
  
 print(tensor_channel_mean(np.random.rand(4, 4, 3)))
