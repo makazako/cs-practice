@@ -5,16 +5,16 @@ def make_table(rows, columns):
 
 def rectangle(matrix, row_start, row_stop, column_start, column_stop):
     return [
-        row[column_start-1:column_stop]
-        for row in matrix[row_start-1:row_stop]
+        row[column_start:column_stop]
+        for row in matrix[row_start:row_stop]
     ]
 m = make_table(3, 4)
 print(m)
 print(rectangle(m, 1, 3, 1, 3))
 
 def replace_rectangle(matrix, row_start, row_stop, column_start, column_stop, value):
-    for i in range(row_start-1, row_stop):
-        for j in range(column_start-1, column_stop):
+    for i in range(row_start, row_stop):
+        for j in range(column_start, column_stop):
             matrix[i][j] = value
     return matrix
 print(replace_rectangle(m, 1, 3, 1, 3, 99))
